@@ -180,14 +180,6 @@ void generateHeaderFile(const Options & options) {
 		const char * fileName;
 		const char * fileData;
 		const unsigned int fileDataSize;
-
-		std::string name() const {
-			return fileName;
-		}
-
-		std::string content() const {
-			return std::string{ fileData, fileDataSize };
-		}
 	};
 
 	extern const unsigned int fileInfoListSize;
@@ -218,7 +210,7 @@ void generateHeaderFile(const Options & options) {
 	if (stream) {
 		stream << "#pragma once\n";
 		stream << "\n";
-		stream << "#include <string>\n";
+		stream << "#include <stddef.h>\n";
 
 		if (!options.namespaceName.empty()) {
 			stream << "\n";
